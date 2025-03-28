@@ -4,8 +4,10 @@ import Layout from "./projetperso/src/pages/Layout"
 import Home from "./projetperso/src/pages/Home"
 import Contact from "./projetperso/src/pages/Contact"
 import NoPage from "./projetperso/src/pages/NoPage"
+import connectMongoDB from "./config/Mongodb"
+import ENV from "./config/env"
 
-function App() {
+function app() {
     return(
         <BrowserRouter>
             <Routes>
@@ -19,7 +21,9 @@ function App() {
     )
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<App/>)
+connectMongoDB(ENV.URI_MONGO, ENV.DB_NAME)
 
-export default App
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(<app/>)
+
+export default app
