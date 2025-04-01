@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../MangasList.css"
 
 function MangaList() {
     const [mangas, setMangas] = useState([])
@@ -12,18 +13,20 @@ function MangaList() {
     }, [])
 
     return (
-        <div>
+        <>
             <h2>Liste des Mangas</h2>
-            <ul>
+            <div className="mangas-container">
                 {mangas.map(manga => (
-                    <li key={manga.id}>
-                        <h3>{manga.titre}</h3>
-                        <p>{manga.description}</p>
+                    <div key={manga.id} className="manga-card">
                         <img src={manga.couverture} alt={manga.titre} width={150} />
-                    </li>
+                        <h3>{manga.tittre}</h3>
+                        <p>{manga.description}</p>
+                        <p>{manga.auteur}</p>
+                        <p>{manga.statut}</p>
+                    </div>
                 ))}
-            </ul>
-        </div>
+            </div>
+        </>
     )
 }
 
