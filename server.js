@@ -1,12 +1,12 @@
 import express from "express"
-import pool from "./database/bdd"
+import pool from "./database/bdd.js"
 import cors from "cors"
-const app = express
+const app = express();
 //const port = 3000
 
-app.use(express.json())
+app.use(express.json());
 
-app.request(cors())
+app.use(cors());
 
 app.get('/mangas', async (req, res) => {
     try {
@@ -26,9 +26,9 @@ app.listen(PORT, () => {
     
 })
 
-app.post('/', (req, res) => {
-    res.send('post request')
-})
+//app.post('/', (req, res) => {
+//    res.send('post request')
+//})
 
 //app.listen(port, () => {
 //    console.log(`Exemple app listening on port ${port}`);
